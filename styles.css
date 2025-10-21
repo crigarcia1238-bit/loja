@@ -98,7 +98,7 @@ footer {
     opacity: 0;
 }
 #menu-toggle:checked + .menu-btn span:nth-child(3) {
-    transform: rotate(-45deg) translate(4px, -5px);
+    transform: rotate(-45deg) translate(4px, -6px);
     background: #fff;
 }
 .menu-btn span {
