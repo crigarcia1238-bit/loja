@@ -91,14 +91,14 @@ footer {
     pointer-events: auto;
 }
 #menu-toggle:checked + .menu-btn span:nth-child(1) {
-    transform: rotate(45deg) translate(15px, 15px);
+    transform: rotate(45deg) translate(7px,9px);
     background: #fff;
 }
 #menu-toggle:checked + .menu-btn span:nth-child(2) {
     opacity: 0;
 }
 #menu-toggle:checked + .menu-btn span:nth-child(3) {
-    transform: rotate(-45deg) translate(-15px, -15px);
+    transform: rotate(-45deg) translate(4px, -5px);
     background: #fff;
 }
 .menu-btn span {
