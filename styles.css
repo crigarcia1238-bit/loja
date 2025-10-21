@@ -1,0 +1,107 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #f88706; 
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+main {
+    flex: 1; 
+    background-color: #fff; 
+    padding: 20px;
+}
+
+footer {
+    background-color: #f88706;
+    color: #fff;
+    text-align: center;
+    padding: 15px;
+}
+#menu-toggle {
+    display: none;
+    background-color: #333333;
+    padding: 10px;
+}
+.menu-btn {
+    
+    position :  fixed;
+    top : 20px;
+    left: 20px;
+    width: 30px;    
+    height: 22px;
+    cursor: pointer;
+    z-index: 1002;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.menu-btn span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #1a201a;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #1a201a;
+    color: #ffffff;
+    padding-top: 60px;
+    transition: left 0.3s ease;
+    z-index: 1001;
+}
+.menu ul,li {
+    list-style-type: none;
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 250, 250, 0.1);
+}
+.menu ul,li :hover {
+    background-color: rgba(255,255,255, 0.1);
+    cursor: pointer;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+}
+#menu-toggle:checked ~ .menu {
+    left: 0;
+}
+#menu-toggle:checked ~ .overlay {
+    opacity: 1;
+    pointer-events: auto;
+}
+#menu-toggle:checked + .menu-btn span:nth-child(1) {
+    transform: rotate(45deg) translate(15px, 15px);
+    background: #fff;
+}
+#menu-toggle:checked + .menu-btn span:nth-child(2) {
+    opacity: 0;
+}
+#menu-toggle:checked + .menu-btn span:nth-child(3) {
+    transform: rotate(-45deg) translate(-15px, -15px);
+    background: #fff;
+}
+.menu-btn span {
+    transform-origin: center;
+  
+}
