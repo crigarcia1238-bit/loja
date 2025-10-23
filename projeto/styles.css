@@ -34,7 +34,7 @@ footer {
 
 }
 .menu-btn {
-    position :  fixed !important;
+    position :  absolute;
     top : 20px;
     left: 20px;
     width: 30px;    
@@ -55,7 +55,7 @@ footer {
     
 }
 .menu {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: -250px;
     width: 250px;
