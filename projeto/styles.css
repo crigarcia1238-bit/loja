@@ -6,6 +6,7 @@ body, html {
     flex-direction: column;
     font-family: Arial, sans-serif;
 }
+/* Estilos para o cabeçalho, conteúdo principal e rodapé */
 header {
     background-color: #f88706; 
     color: #fff;
@@ -24,6 +25,8 @@ footer {
     text-align: center;
     padding: 15px;
 }
+
+/* Estilos para o menu lateral */
 #menu-toggle {
     display: none;
     background-color: #333333;
@@ -109,7 +112,7 @@ footer {
 .menu-btn span {
     transform-origin: center;
 }
-
+/* Estilos para a galeria de imagens */
 .galeria {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 colunas */
@@ -131,7 +134,7 @@ footer {
     transform: scale(1.05);
     cursor: pointer;
   }
-
+ /* Estilos para os blocos de produtos */
 .bloco {
     border: 2px solid #ddd;
     border-radius: 10px;
