@@ -13,6 +13,16 @@ header {
     padding: 20px;
     text-align: center;
 }
+/* Estilos para o título e introdução */
+h1 {
+    text-align: center;
+}
+#intro {
+    font-size: 1.2rem;
+    margin-top: 10px;
+   padding: 20px; color: #333; font-family: Arial, sans-serif;
+}
+
 main {
     flex: 1; 
     background-color: #fff; 
@@ -31,7 +41,7 @@ footer {
     display: none;
     background-color: #333333;
     padding: 10px;
-
+    
 }
 .menu-btn {
     position :  absolute;
@@ -54,6 +64,7 @@ footer {
     transition: all 0.3s ease;
     
 }
+
 .menu {
     position: absolute;
     top: 0;
@@ -66,13 +77,13 @@ footer {
     transition: left 0.3s ease;
     z-index: 1001;
 }
-.menu ul,li {
+.menu ul li {
     list-style-type: none;
     padding: 15px 20px;
     border-bottom: 1px solid rgba(255, 250, 250, 0.1);
     
 }
-.menu ul,li :hover {
+.menu ul li :hover {
     background-color: rgba(255,255,255, 0.1);
     cursor: pointer;
 }
@@ -165,3 +176,101 @@ footer {
   }
 
 /* Estilos para formulários */  
+/* ==== RESET GERAL ==== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ==== ESTILO GERAL do form==== */
+.body-form{
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(135deg, #f6f7fb93, #e6ebf596);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+/* ==== CONTAINER DO FORMULÁRIO ==== */
+.form-container {
+  background-color: #fff;
+  padding: 40px 35px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 420px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* ==== TÍTULO ==== */
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #000000;
+  font-size: 1.8rem;
+}
+
+/* ==== LABELS E INPUTS ==== */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 18px;
+  border: 1.8px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: all 0.25s ease;
+  outline: none;
+  background-color: #fafafa;
+}
+
+input:focus, textarea:focus {
+  border-color: #2d6cdf;
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(45, 108, 223, 0.2);
+}
+
+/* ==== BOTÃO ==== */
+button {
+  width: 100%;
+  background-color: #2d6cdf;
+  color: #fff;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1f53b7;
+  transform: scale(1.02);
+}
+
+/* ==== RESPONSIVO ==== */
+@media (max-width: 480px) {
+  .form-container {
+    padding: 30px 25px;
+  }
+
+  .form-container h1 {
+    font-size: 1.5rem;
+  }
+}

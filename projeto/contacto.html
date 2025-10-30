@@ -3,26 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Contactos</title>
 </head>
 <body>
-    <div class="contacto-container">
+    <div class="body-form">
+    <div class="form-container ">
         <h1>Contacte-nos</h1>
+        <br>
         <form action="#" method="post" class="contacto-form">
             <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-
+            <input type="text" id="nome" name="nome" placeholder="Seu nome" required>
+        <br>
+        <br>
             <label for="telefone">Telefone:</label>
-            <input type="tel" id="telefone" name="telefone" required>
-
+            <input type="tel" id="telefone" name="telefone" placeholder="Seu numero " required>
+        <br>
+        <br>
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-
+            <input type="email" id="email" name="email" placeholder="Seu email" required>
+        <br>
+        <br>
             <label for="mensagem">Mensagem :</label>
-            <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
-
-            <button type="submit">Enviar</button>
+            <textarea id="mensagem" name="mensagem" rows="4" placeholder="text.." required></textarea>
+        <br>
+        <br>
+            <button type="submit">Enviar</button>           
+            
         </form>
+    </div>
+    
     </div>
 </body>
 </html>
