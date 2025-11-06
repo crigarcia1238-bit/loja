@@ -183,6 +183,7 @@ footer {
   box-sizing: border-box;
 }
 
+/*--------------------------------------formulario-----------------------------*/
 
 /* ==== ESTILO GERAL do form==== */
 .body-form{
@@ -194,7 +195,8 @@ footer {
   align-items: center;
   padding: 20px;
 }
-/* ==== CONTAINER DO FORMULÁRIO ==== */
+
+
 .form-container {
   background-color: #fff;
   padding: 40px 35px;
@@ -210,12 +212,18 @@ footer {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* ==== TÍTULO ==== */
+
 .form-container h1 {
   text-align: center;
   margin-bottom: 25px;
   color: #000000;
   font-size: 1.8rem;
+}
+
+textarea {
+  resize: none;
+  width: 100%;
+  height: 120px;
 }
 
 /* ==== LABELS E INPUTS ==== */
@@ -264,7 +272,7 @@ button:hover {
   transform: scale(1.02);
 }
 
-/* ==== RESPONSIVO ==== */
+
 @media (max-width: 480px) {
   .form-container {
     padding: 30px 25px;
@@ -275,36 +283,9 @@ button:hover {
   }
 }
 
-/* ====== Base Reset ====== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-.body-sobre{
-    font-family: 'Poppins', Arial, sans-serif;
-    background: linear-gradient(135deg, #f6f7fb93, #b1b6b696);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-  }
-/* ====== Header ====== */
-.header-sobre {
-  background-color: #b15b2a; /* terracotta tone */
-  color: rgb(255, 255, 255);
-  text-align: center;
-  padding: 2rem 1rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
 
-header .sobre-title {
-  font-size: 2.2rem;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
+  /* ----------------------------------- sobre nos ---------------------*/
 
 /* ====== Main Layout ====== */
 main.sobre-grid {
@@ -349,28 +330,40 @@ main p {
   font-size: 1.05rem;
 }
 
-/* ====== Footer ====== */
-.footer-sobre {
-  background-color: #b15b2a;
-  color: white;
-  text-align: center;
-  padding: 1rem;
-  margin-top: 3rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.5px;
-}
-
-/* ====== Responsive Design ====== */
-@media (max-width: 768px) {
-  main.sobre-grid {
-    padding: 2rem 5%;
+/* ------------------------------- pagina dos produtos ------------*/
+.galeria-produtos {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-gap: 50px;
+  padding: 20px;
   }
 
-  header .page-title {
-    font-size: 1.8rem;
+  .galeria-produtos img {
+    width: 100%;
+    height : 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
   }
 
-  main section {
-    padding: 1.5rem;
+  .bloco-produtos {
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      text-align: center;
+      transition: transform 0.3s ease;
+      width: 300px;
+    }
+
+  .bloco-produtos:hover {
+    transform: scale(1.02);
   }
-}
+
+  .bloco-produtos img {
+    width: 90%;
+    margin-top: 10px;
+    border-radius: 8px;
+  }
