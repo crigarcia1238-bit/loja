@@ -367,3 +367,50 @@ main p {
     margin-top: 10px;
     border-radius: 8px;
   }
+
+
+  /* -------------------------------------Artesoes -------------------------------*/
+  .lista {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 20px;
+}
+
+.item img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.texto {
+  font-size: 1.2rem;
+}
+
+
+.texto-container {
+  padding: 20px;
+  background: #F7EEDB;
+  border-radius: 40px;
+}
+
+.img-container {
+  padding: 10px;
+  background: #FDEBD0;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px; 
+}
