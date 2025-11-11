@@ -414,3 +414,8 @@ main p {
   height: auto;
   border-radius: 20px; 
 }
+
+.img-container img:hover
+{
+ transform: scale(1.02);
+}
