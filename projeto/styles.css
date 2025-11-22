@@ -368,6 +368,22 @@ main p {
     border-radius: 8px;
   }
 
+  /*----------------------------css do botao ler mais/ler menos ------------------------*/
+  .btn-toggle {
+    margin-top: 10px;
+    cursor: pointer;
+    border: none;
+    background: #333;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-toggle:hover {
+    background: #555;
+}
+
 
   /* -------------------------------------Artesoes -------------------------------*/
   .lista {
