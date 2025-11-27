@@ -1,4 +1,25 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+/* -------------------------- CARROSSEL DE IMAGENS --------------------------- */
+    document.querySelectorAll(".carousel").forEach(carousel => {
+        const img = carousel.querySelector(".carousel-img");
+        const images = JSON.parse(carousel.getAttribute("data-images"));
+        let index = 0;
+
+        carousel.querySelector(".next").addEventListener("click", () => {
+            index = (index + 1) % images.length;
+            img.src = images[index];
+        });
+
+        carousel.querySelector(".prev").addEventListener("click", () => {
+            index = (index - 1 + images.length) % images.length;
+            img.src = images[index];
+        });
+    });
+
+
+/* -------------------------- LER MAIS / LER MENOS --------------------------- */
+
     const blocos = document.querySelectorAll(".bloco-produtos");
 
     blocos.forEach(bloco => {
@@ -34,4 +55,5 @@ document.addEventListener("DOMContentLoaded", function () {
             bloco.appendChild(botao);
         }
     });
+
 });
