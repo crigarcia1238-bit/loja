@@ -284,6 +284,41 @@ button:hover {
   }
 }
 
+/*--------------------Css dos botoes --------------*/
+
+.contacto-form .botoes-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px; 
+    margin-top: 10px;
+}
+
+
+.contacto-form button {
+    flex: 1; 
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+.contacto-form button[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.contacto-form button#limpar {
+    background-color: #d9534f;
+    color: white;
+}
+
+
+.contacto-form button:hover {
+    opacity: 0.9;
+}
 
 
   /* ----------------------------------- sobre nos ---------------------*/

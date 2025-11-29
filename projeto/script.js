@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-/* -------------------------- CARROSSEL DE IMAGENS --------------------------- */
+/* -------------------------- Imagens dos Produtos --------------------------- */
     document.querySelectorAll(".carousel").forEach(carousel => {
         const img = carousel.querySelector(".carousel-img");
         const images = JSON.parse(carousel.getAttribute("data-images"));
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-/* -------------------------- LER MAIS / LER MENOS --------------------------- */
+/* -------------------------- ler mais e ler menos --------------------------- */
 
     const blocos = document.querySelectorAll(".bloco-produtos");
 
@@ -55,5 +55,57 @@ document.addEventListener("DOMContentLoaded", function () {
             bloco.appendChild(botao);
         }
     });
+
+
+
+
+/* -------------------------- Local Storage no Formulario --------------------------- */
+
+    const form = document.querySelector(".contacto-form");
+    if (form) {
+        const nome = document.getElementById("nome");
+        const telefone = document.getElementById("telefone");
+        const email = document.getElementById("email");
+        const mensagem = document.getElementById("mensagem");
+
+        // Carregar dados ao abrir a página
+        const dadosSalvos = JSON.parse(localStorage.getItem("formContato"));
+        if (dadosSalvos) {
+            nome.value = dadosSalvos.nome || "";
+            telefone.value = dadosSalvos.telefone || "";
+            email.value = dadosSalvos.email || "";
+            mensagem.value = dadosSalvos.mensagem || "";
+        }
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            const dados = {
+                nome: nome.value,
+                telefone: telefone.value,
+                email: email.value,
+                mensagem: mensagem.value
+            };
+
+            localStorage.setItem("formContato", JSON.stringify(dados));
+
+            alert("Dados salvos com sucesso!");
+        });
+
+        const btnLimpar = document.getElementById("limpar");
+
+        if (btnLimpar) {
+            btnLimpar.addEventListener("click", () => {
+                localStorage.removeItem("formContato");
+
+                nome.value = "";
+                telefone.value = "";
+                email.value = "";
+                mensagem.value = "";
+
+                alert("Dados apagados com sucesso!");
+            });
+        }
+    }
 
 });
