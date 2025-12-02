@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrinho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: #f3f3f3;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 6px;
+        }
+        .item img {
+            width: 90px;
+            height: auto;
+            border-radius: 4px;
+        }
+        #limpar-carrinho,
+        #comprar {
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        #limpar-carrinho {
+            background: red;
+            color: white;
+        }
+        #comprar {
+            background: green;
+            color: white;
+            margin-right: 10px;
+        }
+        .botoes {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Seu Carrinho</h1>
+
+    <div id="lista-carrinho"></div>
+
+    <div class="botoes">
+        <button id="comprar">Comprar</button>
+        <button id="limpar-carrinho">Limpar Carrinho</button>
+    </div>
+
+    <script>
+        const lista = document.getElementById("lista-carrinho");
+
+        function carregarCarrinho() {
+            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            if (carrinho.length === 0) {
+                lista.innerHTML = "<p>O carrinho está vazio.</p>";
+                return;
+            }
+
+            lista.innerHTML = "";
+
+            carrinho.forEach((item) => {
+                lista.innerHTML += `
+                    <div class="item">
+                        <img src="${item.imagem}" alt="produto">
+                        <p>${item.nome}</p>
+                    </div>
+                `;
+            });
+        }
+
+        carregarCarrinho();
+
+  document.getElementById("limpar-carrinho").addEventListener("click", () => {
+            localStorage.removeItem("carrinho");
+            carregarCarrinho();
+        });
+        
+        document.getElementById("comprar").addEventListener("click", () => {
+            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+            if (carrinho.length === 0) {
+                alert("O carrinho está vazio! Não há nada para comprar.");
+                return;
+            }
+
+            alert("Compra feita com sucesso! Entrega em até 7 dias úteis.");
+
+            localStorage.removeItem("carrinho");
+            carregarCarrinho();
+        });
+
+        
+      
+
+    </script>
+
+</body>
+</html>
