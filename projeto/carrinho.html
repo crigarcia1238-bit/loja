@@ -45,9 +45,9 @@ h1 { text-align: center; }
 
 <script>
 function carregarCarrinho() {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    const lista = document.getElementById("lista-carrinho");
-    const totalElem = document.getElementById("total");
+    var carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    var lista = document.getElementById("lista-carrinho");
+    var totalElem = document.getElementById("total");
 
     if (carrinho.length === 0) {
         lista.innerHTML = "<p>O carrinho está vazio.</p>";
@@ -56,39 +56,50 @@ function carregarCarrinho() {
     }
 
     lista.innerHTML = "";
-    let total = 0;
+    var total = 0;
 
-    carrinho.forEach(item => {
-        lista.innerHTML += `
-            <div class="item">
-                <img src="${item.imagem}" alt="${item.nome}">
-                <p>${item.nome}</p>
-                <p>${item.preco.toFixed(2)}€</p>
-            </div>
-        `;
+
+    for (var i = 0; i < carrinho.length; i++) {
+        var item = carrinho[i];
+        lista.innerHTML +=
+            '<div class="item">' +
+            '<img src="' + item.imagem + '" alt="' + item.nome + '">' +
+            '<p>' + item.nome + '</p>' +
+            '<p>' + item.preco.toFixed(2) + '€</p>' +
+            '</div>';
         total += item.preco;
-    });
+    }
 
     totalElem.innerHTML = "Total: " + total.toFixed(2) + "€";
 }
 
-document.getElementById("limpar-carrinho").addEventListener("click", () => {
-    localStorage.removeItem("carrinho");
-    carregarCarrinho();
-});
+// Botão limpar carrinho
+var btnLimpar = document.getElementById("limpar-carrinho");
+if (btnLimpar) {
+    btnLimpar.addEventListener("click", function () {
+        localStorage.removeItem("carrinho");
+        carregarCarrinho();
+    });
+}
 
-document.getElementById("comprar").addEventListener("click", () => {
-    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-    if (carrinho.length === 0) {
-        alert("O carrinho está vazio!");
-        return;
-    }
-    alert("Compra feita com sucesso! Entrega em até 7 dias úteis.");
-    localStorage.removeItem("carrinho");
-    carregarCarrinho();
-});
+// Botão comprar
+var btnComprar = document.getElementById("comprar");
+if (btnComprar) {
+    btnComprar.addEventListener("click", function () {
+        var carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+        if (carrinho.length === 0) {
+            alert("O carrinho está vazio!");
+            return;
+        }
+        alert("Compra feita com sucesso! Entrega em até 7 dias úteis.");
+        localStorage.removeItem("carrinho");
+        carregarCarrinho();
+    });
+}
 
+// Carrega o carrinho ao iniciar
 carregarCarrinho();
+
 </script>
 
 </body>
