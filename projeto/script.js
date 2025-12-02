@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const email = document.getElementById("email");
         const mensagem = document.getElementById("mensagem");
 
-        // Carregar dados ao abrir a página
+        
         const dadosSalvos = JSON.parse(localStorage.getItem("formContato"));
         if (dadosSalvos) {
             nome.value = dadosSalvos.nome || "";
@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             localStorage.setItem("formContato", JSON.stringify(dados));
 
-            alert("Dados salvos com sucesso!");
+            alert("Dados salvos com sucesso! Entraremos em contato em breve.");
         });
 
         const btnLimpar = document.getElementById("limpar");
