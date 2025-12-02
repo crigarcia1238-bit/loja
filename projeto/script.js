@@ -134,26 +134,21 @@ document.querySelectorAll(".bloco-produtos").forEach((produto) => {
 
     if (botao) {
         botao.addEventListener("click", () => {
-
             const nome = produto.querySelector("h3 .legenda").innerText.trim();
             const imagem = produto.querySelector(".carousel-img").src;
+            const preco = parseFloat(produto.querySelector(".preco").innerText);
 
-         
-            const item = { nome, imagem };
+            const item = { nome, imagem, preco };
 
-         
             let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
-
-         
             carrinho.push(item);
-
-         
             localStorage.setItem("carrinho", JSON.stringify(carrinho));
 
             alert("Produto adicionado ao carrinho!");
         });
     }
 });
+
 
 
 

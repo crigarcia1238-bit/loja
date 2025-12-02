@@ -1,115 +1,95 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-        }
-        .item {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: #f3f3f3;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 6px;
-        }
-        .item img {
-            width: 90px;
-            height: auto;
-            border-radius: 4px;
-        }
-        #limpar-carrinho,
-        #comprar {
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
-            margin-top: 20px;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-        #limpar-carrinho {
-            background: red;
-            color: white;
-        }
-        #comprar {
-            background: green;
-            color: white;
-            margin-right: 10px;
-        }
-        .botoes {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrinho</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+h1 { text-align: center; }
+.item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: #f3f3f3;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+}
+.item img { width: 90px; height: auto; border-radius: 4px; }
+.item p { margin: 0; }
+.total { font-weight: bold; font-size: 18px; margin-top: 10px; text-align: right; }
+.botoes { display: flex; justify-content: center; gap: 15px; margin-top: 20px; }
+.botoes button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+}
+#comprar { background-color: green; color: white; }
+#limpar-carrinho { background-color: red; color: white; }
+</style>
 </head>
 <body>
 
-    <h1>Seu Carrinho</h1>
+<h1>Seu Carrinho</h1>
 
-    <div id="lista-carrinho"></div>
+<div id="lista-carrinho"></div>
+<div class="total" id="total"></div>
 
-    <div class="botoes">
-        <button id="comprar">Comprar</button>
-        <button id="limpar-carrinho">Limpar Carrinho</button>
-    </div>
+<div class="botoes">
+    <button id="comprar">Comprar</button>
+    <button id="limpar-carrinho">Limpar Carrinho</button>
+</div>
 
-    <script>
-        const lista = document.getElementById("lista-carrinho");
+<script>
+function carregarCarrinho() {
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    const lista = document.getElementById("lista-carrinho");
+    const totalElem = document.getElementById("total");
 
-        function carregarCarrinho() {
-            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    if (carrinho.length === 0) {
+        lista.innerHTML = "<p>O carrinho está vazio.</p>";
+        totalElem.innerHTML = "";
+        return;
+    }
 
-            if (carrinho.length === 0) {
-                lista.innerHTML = "<p>O carrinho está vazio.</p>";
-                return;
-            }
+    lista.innerHTML = "";
+    let total = 0;
 
-            lista.innerHTML = "";
+    carrinho.forEach(item => {
+        lista.innerHTML += `
+            <div class="item">
+                <img src="${item.imagem}" alt="${item.nome}">
+                <p>${item.nome}</p>
+                <p>${item.preco.toFixed(2)}€</p>
+            </div>
+        `;
+        total += item.preco;
+    });
 
-            carrinho.forEach((item) => {
-                lista.innerHTML += `
-                    <div class="item">
-                        <img src="${item.imagem}" alt="produto">
-                        <p>${item.nome}</p>
-                    </div>
-                `;
-            });
-        }
+    totalElem.innerHTML = "Total: " + total.toFixed(2) + "€";
+}
 
-        carregarCarrinho();
+document.getElementById("limpar-carrinho").addEventListener("click", () => {
+    localStorage.removeItem("carrinho");
+    carregarCarrinho();
+});
 
-  document.getElementById("limpar-carrinho").addEventListener("click", () => {
-            localStorage.removeItem("carrinho");
-            carregarCarrinho();
-        });
-        
-        document.getElementById("comprar").addEventListener("click", () => {
-            const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+document.getElementById("comprar").addEventListener("click", () => {
+    const carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+    if (carrinho.length === 0) {
+        alert("O carrinho está vazio!");
+        return;
+    }
+    alert("Compra feita com sucesso! Entrega em até 7 dias úteis.");
+    localStorage.removeItem("carrinho");
+    carregarCarrinho();
+});
 
-            if (carrinho.length === 0) {
-                alert("O carrinho está vazio! Não há nada para comprar.");
-                return;
-            }
-
-            alert("Compra feita com sucesso! Entrega em até 7 dias úteis.");
-
-            localStorage.removeItem("carrinho");
-            carregarCarrinho();
-        });
-
-        
-      
-
-    </script>
+carregarCarrinho();
+</script>
 
 </body>
 </html>
