@@ -4,7 +4,7 @@ body, html {
     min-height: 100%;
     display: flex;
     flex-direction: column;
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: Arial, sans-serif;
 }
 
 header {
@@ -640,6 +640,4 @@ main p {
   .img-container {
     order: -1; 
   }
-
 }
-
