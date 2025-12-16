@@ -138,7 +138,7 @@ for (let i = 0; i < produtos.length; i++) {
 
     if (botao) {
         botao.addEventListener("click", function () {
-            var nome = produto.querySelector("h3 .legenda").innerText.trim();
+            var nome = produto.querySelector(".legenda h3").innerText.trim();
             var imagem = produto.querySelector(".carousel-img").src;
             var precoText = produto.querySelector(".preco").innerText;
             var preco = parseFloat(precoText.replace(/[^0-9.,]/g, '').replace(',', '.'));
